@@ -24,7 +24,7 @@ class Fileupload extends Component {
     };
     formData.append("file", files[0]);
 
-    axios.post("/api/client/uploadimage", formData, config).then(response => {
+    axios.post("http://158.106.137.107:7000/api/client/uploadimage", formData, config).then(response => {
       this.setState(
         {
           uploading: false,
@@ -38,7 +38,7 @@ class Fileupload extends Component {
   };
 
   onRemove = id => {
-    axios.get(`/api/client/removeimage?public_id=${id}`).then(response => {
+    axios.get(`http://158.106.137.107:7000/api/client/removeimage?public_id=${id}`).then(response => {
       let images = this.state.uploadedFiles.filter(item => {
         return item.public_id !== id;
       });
